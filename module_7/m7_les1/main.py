@@ -38,9 +38,8 @@ class Shop:
     #         if product.name in old_products_list + new_products_list:
     #             print(f'Продукт {product.name} уже есть в магазине')
     #         else:
-    #             new_products = open(self.__file_name, 'a')
+    #             with open(self.__file_name, 'a') as new_products:
     #             new_products.write(f'{product}\n')
-    #             new_products.close()
     #             new_products_list += f'{product}\n'
 
 
