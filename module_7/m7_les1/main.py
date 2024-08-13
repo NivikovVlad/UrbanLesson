@@ -12,9 +12,8 @@ class Shop:
     __file_name = 'products.txt'
 
     def get_products(self):
-        f = open(self.__file_name, 'r')
-        products_list = f.read()
-        f.close()
+        with open(self.__file_name, 'r') as f:
+            products_list = f.read()
         return products_list
 
     '''
@@ -26,9 +25,8 @@ class Shop:
             if product.name in products_list:
                 print(f'Продукт {product.name} уже есть в магазине')
             else:
-                new_products = open(self.__file_name, 'a')
-                new_products.write(f'{product}\n')
-                new_products.close()
+                with open(self.__file_name, 'a') as new_products:
+                    new_products.write(f'{product}\n')
 
     '''
     Второй вариант
