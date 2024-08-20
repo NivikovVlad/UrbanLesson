@@ -1,0 +1,6 @@
+tExt
+Напишите класс WordsFinder,
+объекты которого создаются следующим образом:
+WordsFinder('file1.txt, file2.txt', 'file3.txt', ...).
+tExt
+TEXT
