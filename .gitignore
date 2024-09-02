@@ -1,7 +1,7 @@
 .test/
-.module_7/m7_practica/main.py
-module_7/m7_practica/main.py
-/module_7/m7_practica/main.py
+.module_7/m7_practica/
+/module_7/m7_practica/
+./module_7/m7_practica/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
