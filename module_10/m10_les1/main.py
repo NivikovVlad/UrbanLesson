@@ -12,7 +12,7 @@ def wite_words(word_count, file_name):
         for i in range(word_count):
             file.write(f'Какое-то слово № {i}\n')
             time.sleep(0.1)
-    return f'Завершилась запись в файл {file_name}'
+    return print(f'Завершилась запись в файл {file_name}')
 
 
 if __name__ == "__main__":
@@ -30,10 +30,10 @@ if __name__ == "__main__":
     # С потоками
     time_start = datetime.now()
 
-    thr1 = Thread(target=wite_words, args=(10, 'example1.txt'))
-    thr2 = Thread(target=wite_words, args=(30, 'example2.txt'))
-    thr3 = Thread(target=wite_words, args=(200, 'example3.txt'))
-    thr4 = Thread(target=wite_words, args=(100, 'example4.txt'))
+    thr1 = Thread(target=wite_words, args=(10, 'example5.txt'))
+    thr2 = Thread(target=wite_words, args=(30, 'example6.txt'))
+    thr3 = Thread(target=wite_words, args=(200, 'example7.txt'))
+    thr4 = Thread(target=wite_words, args=(100, 'example8.txt'))
     threads = [thr1, thr2, thr3, thr4]
     for thread in threads:
         thread.start()
