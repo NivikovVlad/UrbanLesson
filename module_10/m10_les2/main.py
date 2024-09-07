@@ -31,8 +31,10 @@ if __name__ == '__main__':
     threads = []
     first_knight = Knight('Sir Lancelot', 10)
     second_knight = Knight("Sir Galahad", 20)
+    # third_knight = Knight("Sir Cheburashka", 18)
     threads.append(first_knight)
     threads.append(second_knight)
+    # threads.append(third_knight)
 
     for thread in threads:
         thread.start()
@@ -64,4 +66,3 @@ Sir Lancelot, сражается 10 день(дня)..., осталось 0 во
 Sir Lancelot одержал победу спустя 10 дней(дня)!
 Все битвы закончились!
 """
-
