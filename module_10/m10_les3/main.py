@@ -9,30 +9,36 @@ from time import sleep
 
 class Bank:
     TRANSACTION = 100
+    # withdraw_list = []
+    # deposit_list = []
 
     def __init__(self):
         self.balance = 0
         self.lock = Lock()
 
     def deposit(self):
-        for i in range(self.TRANSACTION):
+        self.lock.acquire()
+        for _ in range(self.TRANSACTION):
             deposit = randint(50, 500)
             self.balance += deposit
-            print(f'Пополнение: {deposit}. Баланс: {self.balance}')
+            # self.deposit_list.append('1')
+            print(f"Пополнение: {deposit}. Баланс: {self.balance}")
             if self.balance >= 500 and self.lock.locked():
                 self.lock.release()
             sleep(0.001)
 
     def take(self):
-        for i in range(self.TRANSACTION):
+        self.lock.acquire()
+        for _ in range(self.TRANSACTION):
             withdraw = randint(50, 500)
             print(f'Запрос на {withdraw}')
             if withdraw <= self.balance:
                 self.balance -= withdraw
-                print(f'Снятие: {withdraw}. Баланс: {self.balance}')
-                sleep(0.001)
+                # self.withdraw_list.append('1')
+                print(f"Снятие: {withdraw}. Баланс: {self.balance}")
             else:
-                print(f'Запрос отклонён, недостаточно средств')
+                print("Запрос отклонён, недостаточно средств")
+                # self.withdraw_list.append('1')
                 self.lock.acquire()
 
 
@@ -48,4 +54,5 @@ if __name__ == '__main__':
     th2.join()
 
     print(f'Итоговый баланс: {bk.balance}')
-
+    # print(f'deposit_list {len(Bank.deposit_list)}')
+    # print(f'withdraw_list {len(Bank.withdraw_list)}')
