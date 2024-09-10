@@ -14,7 +14,7 @@ def read_info(name):
                 all_data.append(f'{line}\n')
 
 
-def main(n, p):
+def main(n=1, p=1):
     """
     Запускает код 'n' раз в 'p' процессах
     :param n: количество запусков
