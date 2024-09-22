@@ -6,6 +6,17 @@
 from pprint import pprint
 
 
+class Introspection:
+    Introspection = 'Возможность запросить тип и структуру объекта во время выполнения программы'
+
+    def __init__(self, obj):
+        self.obj = obj
+
+    def sum_(self):
+        summa = self.obj + self.obj
+        return summa
+
+
 def introspection_info(obj):
     result = {
         'type': type(obj).__name__,
@@ -21,8 +32,14 @@ def introspection_info(obj):
 
 
 if __name__ == '__main__':
+    print('number_info')
     number_info = introspection_info(42)
     pprint(number_info)
+
+    print('\nclass_info')
+    obj = Introspection('Hello')
+    class_info = introspection_info(obj)
+    pprint(class_info)
 
 
 
