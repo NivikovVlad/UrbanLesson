@@ -4,7 +4,7 @@
 """
 
 import unittest
-from HumanMoveTest import runner
+from module_12.HumanMoveTest import runner
 
 
 class RunnerTest(unittest.TestCase):
