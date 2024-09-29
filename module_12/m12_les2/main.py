@@ -8,26 +8,6 @@ from pprint import pprint
 from module_12.HumanMoveTest import runner_and_tournament as rt
 
 
-class Corrected_Runner(rt.Runner):
-    """
-    Добавлен атрибут time
-    """
-    def __init__(self, name, speed=5):
-        super().__init__(self, name)
-        self.name = name
-        self.distance = 0
-        self.speed = speed
-        self.time = 0
-
-    def run(self):
-        self.time += 1
-        self.distance += self.speed * 2
-
-    def walk(self):
-        self.time += 1
-        self.distance += self.speed
-
-
 class Corrected_Tournament(rt.Tournament):
     """
     Исправлен словарь finishers:
@@ -65,9 +45,9 @@ class TournamentTest(unittest.TestCase):
         cls.all_results = list()
 
     def setUp(self):
-        self.Useyn = Corrected_Runner('Усэйн', 10)
-        self.Andrey = Corrected_Runner('Андрей', 9)
-        self.Nick = Corrected_Runner('Ник', 3)
+        self.Useyn = rt.Runner('Усэйн', 10)
+        self.Andrey = rt.Runner('Андрей', 9)
+        self.Nick = rt.Runner('Ник', 3)
 
     @classmethod
     def tearDownClass(cls):
