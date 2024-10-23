@@ -73,7 +73,7 @@ async def start_message(message):
 
 
 @dp.message_handler(text=['Информация'])
-async def set_age(message):
+async def info_for_bot(message):
     await message.answer('Бот рассчитывает норму калорий ')
 
 
