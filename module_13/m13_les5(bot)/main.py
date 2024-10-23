@@ -16,9 +16,9 @@ dp = Dispatcher(bot, storage=MemoryStorage())
 
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
 button0 = KeyboardButton(text='Рассчитать')
-kb.row(button0)
+kb.add(button0)
 button1 = KeyboardButton(text='Информация')
-kb.row(button1)
+kb.add(button1)
 
 
 class UserState(StatesGroup):
