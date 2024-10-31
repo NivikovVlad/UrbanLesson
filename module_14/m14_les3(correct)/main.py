@@ -44,9 +44,12 @@ async def calc_(message):
     await message.answer('Выберите опцию', reply_markup=calc_kb)
 
 
-@dp.message_handler(text=['Заказать'])
-async def shop_list(message):
-    await message.answer('Выберите опцию', reply_markup=shop_kb)
+@dp.message_handler(text=['Купить'])
+async def get_buying_list(message):
+    for key, value in config.price.items():
+        with open(value[0], 'rb') as img:
+            await message.answer_photo(img, f'Название: {key} | Описание: {value[1]} | Цена: {value[2]}')
+    await message.answer('Выберите продукт для покупки:', reply_markup=shop_kb)
 
 
 @dp.callback_query_handler(text=['formulas'])
@@ -61,38 +64,6 @@ async def set_age(call):
     await UserState.age.set()
 
 
-@dp.callback_query_handler(text=['breakfast'])
-async def buy_breakfast(call):
-    with open('imgs/breakfast.jpg', 'rb') as img:
-        await call.message.answer_photo(img, About_goods.breakfast, reply_markup=by_kb)
-    await call.message.delete()
-    await call.answer()
-
-
-@dp.callback_query_handler(text=['lunch'])
-async def buy_breakfast(call):
-    with open('imgs/lunch.jpg', 'rb') as img:
-        await call.message.answer_photo(img, About_goods.lunch, reply_markup=by_kb)
-    await call.message.delete()
-    await call.answer()
-
-
-@dp.callback_query_handler(text=['dinner'])
-async def buy_breakfast(call):
-    with open('imgs/dinner.jpg', 'rb') as img:
-        await call.message.answer_photo(img, About_goods.dinner, reply_markup=by_kb)
-    await call.message.delete()
-    await call.answer()
-
-
-@dp.callback_query_handler(text=['set_menu'])
-async def buy_breakfast(call):
-    with open('imgs/set_menu.jpg', 'rb') as img:
-        await call.message.answer_photo(img, About_goods.set_menu, reply_markup=by_kb)
-    await call.message.delete()
-    await call.answer()
-
-
 @dp.callback_query_handler(text=['back_to_shop'])
 async def back_to_shop(call):
     await call.message.answer('Отступаем к прилавкам!', reply_markup=shop_kb)
@@ -100,7 +71,7 @@ async def back_to_shop(call):
     await call.answer()
 
 
-@dp.callback_query_handler(text=['buy'])
+@dp.callback_query_handler(text=['product_buying'])
 async def send_confirm_message(call):
     await call.message.answer('Вы успешно приобрели продукт!')
     await call.answer()
